@@ -8,14 +8,15 @@ interface EducationSectionProps {
 
 const defaultEducation: Education[] = [
   {
-    id: '1',
-    institution: 'Institut Teknologi Bandung',
-    degree: 'Bachelor of Engineering',
-    field: 'Electrical Engineering',
-    startYear: '2014',
-    endYear: '2018',
-    current: false,
-    description: 'Specialized in embedded systems and microcontroller programming. Thesis on IoT-based environmental monitoring systems.',
+    id: "1",
+    institution: "Politeknik IDN",
+    degree: "Bachelor of Applied Computer Science",
+    field: "Rekayasa Perangkat Lunak",
+    startYear: "2023",
+    endYear: "",
+    current: true,
+    description:
+      "Specialized in embedded systems and microcontroller programming. Thesis on IoT-based environmental monitoring systems.",
     published: true,
     order: 1,
   },

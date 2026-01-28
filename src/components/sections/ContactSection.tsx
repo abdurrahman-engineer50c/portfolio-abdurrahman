@@ -9,9 +9,9 @@ interface ContactSectionProps {
 
 const defaultContactInfo: ContactInfo = {
   id: '1',
-  email: 'contact@example.com',
-  phone: '+6281234567890',
-  whatsapp: '6281234567890',
+  email: 'rahmanabdur15689@gmail.com',
+  phone: '+6285601667853',
+  whatsapp: '6285601667853',
   location: 'Indonesia',
   socialLinks: [
     { platform: 'GitHub', url: 'https://github.com', icon: 'github' },

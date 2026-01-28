@@ -14,7 +14,7 @@ interface HeroSectionProps {
 }
 
 const defaultData = {
-  name: "Ahmad Fauzi",
+  name: "Abdurrahman",
   title: "IoT Engineer | Embedded Systems | Robotics Integration",
   tagline: "Building intelligent connected devices that bridge the physical and digital worlds. Specialized in ESP32, Arduino, and industrial IoT solutions.",
   profileImage: heroProfile,
