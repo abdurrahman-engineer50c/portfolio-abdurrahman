@@ -8,7 +8,7 @@ interface FooterProps {
 
 const defaultFooter: FooterData = {
   id: '1',
-  copyright: '© 2024 Ahmad Fauzi. All rights reserved.',
+  copyright: '© 2026 Abdurrahman. All rights reserved.',
   tagline: 'Building the future, one connected device at a time.',
   published: true,
 };
@@ -53,7 +53,7 @@ export const Footer = ({ footerData = defaultFooter, contactInfo }: FooterProps)
           {/* Logo / Brand */}
           <div className="text-center md:text-left">
             <Link to="/" className="text-xl font-bold text-foreground">
-              <span className="text-gradient">AF</span>
+              <span className="text-gradient">Bdur</span>
             </Link>
             {footer.tagline && (
               <p className="text-sm text-muted-foreground mt-2">{footer.tagline}</p>
@@ -94,7 +94,7 @@ export const Footer = ({ footerData = defaultFooter, contactInfo }: FooterProps)
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Ahmad Fauzi. All rights reserved.
+            © {currentYear} Abdurrahman. All rights reserved.
           </p>
         </div>
       </div>
