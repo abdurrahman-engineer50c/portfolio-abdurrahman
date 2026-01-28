@@ -20,6 +20,8 @@ import AdminCertificates from "./pages/admin/AdminCertificates";
 import AdminSkills from "./pages/admin/AdminSkills";
 import AdminContact from "./pages/admin/AdminContact";
 
+
+
 const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -80,3 +82,16 @@ const App = () => (
 );
 
 export default App;
+
+
+// import { testFirestore } from "./lib/testFirestore";
+
+// function App() {
+//   testFirestore();
+
+//   return <div>Testing Firestore...</div>;
+// }
+
+// export default App;
+
+
