@@ -48,7 +48,7 @@ export const Navbar = () => {
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
-            <span className="text-gradient">AE</span>
+            <span className="text-gradient">Abdurrahman</span>
             <span className="ml-1 text-sm font-normal text-muted-foreground">IoT Engineer</span>
           </Link>
 
