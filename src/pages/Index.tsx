@@ -1,22 +1,131 @@
-import { useState, useEffect } from 'react';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { AboutSection } from '@/components/sections/AboutSection';
-import { PortfolioSection } from '@/components/sections/PortfolioSection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection';
-import { EducationSection } from '@/components/sections/EducationSection';
-import { CertificatesSection } from '@/components/sections/CertificatesSection';
-import { SkillsSection } from '@/components/sections/SkillsSection';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { 
-  getHero, 
-  getAbout, 
-  getPublishedProjects, 
-  getPublishedExperiences, 
-  getPublishedEducation, 
-  getPublishedCertificates, 
-  getPublishedSkillCategories, 
+// import { useState, useEffect } from 'react';
+// import { Navbar } from '@/components/layout/Navbar';
+// import { Footer } from '@/components/layout/Footer';
+// import { HeroSection } from '@/components/sections/HeroSection';
+// import { AboutSection } from '@/components/sections/AboutSection';
+// import { PortfolioSection } from '@/components/sections/PortfolioSection';
+// import { ExperienceSection } from '@/components/sections/ExperienceSection';
+// import { EducationSection } from '@/components/sections/EducationSection';
+// import { CertificatesSection } from '@/components/sections/CertificatesSection';
+// import { SkillsSection } from '@/components/sections/SkillsSection';
+// import { ContactSection } from '@/components/sections/ContactSection';
+// import { 
+//   getHero, 
+//   getAbout, 
+//   getPublishedProjects, 
+//   getPublishedExperiences, 
+//   getPublishedEducation, 
+//   getPublishedCertificates, 
+//   getPublishedSkillCategories, 
+//   getContact,
+//   getFooter,
+//   type HeroData,
+//   type AboutData,
+//   type Project,
+//   type Experience,
+//   type Education,
+//   type Certificate,
+//   type SkillCategory,
+//   type ContactInfo,
+//   type FooterData
+// } from '@/lib/firestore';
+
+// const Index = () => {
+//   const [heroData, setHeroData] = useState<HeroData | null>(null);
+//   const [aboutData, setAboutData] = useState<AboutData | null>(null);
+//   const [projects, setProjects] = useState<Project[]>([]);
+//   const [experiences, setExperiences] = useState<Experience[]>([]);
+//   const [education, setEducation] = useState<Education[]>([]);
+//   const [certificates, setCertificates] = useState<Certificate[]>([]);
+//   const [skillCategories, setSkillCategories] = useState<SkillCategory[]>([]);
+//   const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
+//   const [footerData, setFooterData] = useState<FooterData | null>(null);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const [
+//           hero,
+//           about,
+//           projectsData,
+//           experiencesData,
+//           educationData,
+//           certificatesData,
+//           skillsData,
+//           contact,
+//           footer
+//         ] = await Promise.all([
+//           getHero(),
+//           getAbout(),
+//           getPublishedProjects(),
+//           getPublishedExperiences(),
+//           getPublishedEducation(),
+//           getPublishedCertificates(),
+//           getPublishedSkillCategories(),
+//           getContact(),
+//           getFooter()
+//         ]);
+
+//         setHeroData(hero);
+//         setAboutData(about);
+//         setProjects(projectsData);
+//         setExperiences(experiencesData);
+//         setEducation(educationData);
+//         setCertificates(certificatesData);
+//         setSkillCategories(skillsData);
+//         setContactInfo(contact);
+//         setFooterData(footer);
+//       } catch (error) {
+//         console.log('Using default data - Firebase not configured yet');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen bg-background">
+//       <Navbar />
+//       <main>
+//         <HeroSection data={heroData || undefined} />
+//         <AboutSection data={aboutData || undefined} />
+//         <PortfolioSection projects={projects} />
+//         <ExperienceSection experiences={experiences} />
+//         <EducationSection education={education} />
+//         <CertificatesSection certificates={certificates} />
+//         <SkillsSection skillCategories={skillCategories} />
+//         <ContactSection contactInfo={contactInfo || undefined} />
+//       </main>
+//       <Footer footerData={footerData || undefined} contactInfo={contactInfo || undefined} />
+//     </div>
+//   );
+// };
+
+// export default Index;
+
+import { useEffect, useState } from "react";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { PortfolioSection } from "@/components/sections/PortfolioSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { EducationSection } from "@/components/sections/EducationSection";
+import { CertificatesSection } from "@/components/sections/CertificatesSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+
+import {
+  getHero,
+  getAbout,
+  getPublishedProjects,
+  getPublishedExperiences,
+  getPublishedEducation,
+  getPublishedCertificates,
+  getPublishedSkillCategories,
   getContact,
   getFooter,
   type HeroData,
@@ -27,8 +136,8 @@ import {
   type Certificate,
   type SkillCategory,
   type ContactInfo,
-  type FooterData
-} from '@/lib/firestore';
+  type FooterData,
+} from "@/lib/firestore";
 
 const Index = () => {
   const [heroData, setHeroData] = useState<HeroData | null>(null);
@@ -54,7 +163,7 @@ const Index = () => {
           certificatesData,
           skillsData,
           contact,
-          footer
+          footer,
         ] = await Promise.all([
           getHero(),
           getAbout(),
@@ -64,7 +173,7 @@ const Index = () => {
           getPublishedCertificates(),
           getPublishedSkillCategories(),
           getContact(),
-          getFooter()
+          getFooter(),
         ]);
 
         setHeroData(hero);
@@ -77,7 +186,7 @@ const Index = () => {
         setContactInfo(contact);
         setFooterData(footer);
       } catch (error) {
-        console.log('Using default data - Firebase not configured yet');
+        console.error("Failed to fetch data from Firestore:", error);
       } finally {
         setLoading(false);
       }
@@ -86,20 +195,45 @@ const Index = () => {
     fetchData();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-muted-foreground">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+
       <main>
-        <HeroSection data={heroData || undefined} />
-        <AboutSection data={aboutData || undefined} />
-        <PortfolioSection projects={projects} />
-        <ExperienceSection experiences={experiences} />
-        <EducationSection education={education} />
-        <CertificatesSection certificates={certificates} />
-        <SkillsSection skillCategories={skillCategories} />
-        <ContactSection contactInfo={contactInfo || undefined} />
+        {heroData && <HeroSection data={heroData} />}
+        {aboutData && <AboutSection data={aboutData} />}
+
+        {projects.length > 0 && <PortfolioSection projects={projects} />}
+
+        {experiences.length > 0 && (
+          <ExperienceSection experiences={experiences} />
+        )}
+
+        {education.length > 0 && <EducationSection education={education} />}
+
+        {certificates.length > 0 && (
+          <CertificatesSection certificates={certificates} />
+        )}
+
+        {skillCategories.length > 0 && (
+          <SkillsSection skillCategories={skillCategories} />
+        )}
+
+        {contactInfo && <ContactSection contactInfo={contactInfo} />}
       </main>
-      <Footer footerData={footerData || undefined} contactInfo={contactInfo || undefined} />
+
+      <Footer
+        footerData={footerData || undefined}
+        contactInfo={contactInfo || undefined}
+      />
     </div>
   );
 };
