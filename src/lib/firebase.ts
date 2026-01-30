@@ -38,6 +38,10 @@ export const initAnalytics = async () => {
   return null;
 };
 
-console.log("FB ENV:", import.meta.env.VITE_FIREBASE_API_KEY);
+console.log("FIREBASE CONFIG PROD", {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+});
+
 
 export default app;
