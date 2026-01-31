@@ -1,49 +1,53 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { getPublishedProjects, type Project } from '@/lib/firestore';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { motion } from "framer-motion";
+import { ArrowRight, ArrowLeft } from "lucide-react"; // Tambahkan ArrowLeft di sini
+import { Button } from "@/components/ui/button"; // Pastikan Button diimpor
+import { getPublishedProjects, type Project } from "@/lib/firestore";
 
 const defaultProjects: Project[] = [
   {
-    id: '1',
-    slug: 'smart-doorlock-system',
-    title: 'Smart Doorlock System',
-    shortDescription: 'RFID-based smart door lock with mobile app integration and real-time access logging.',
-    description: '',
-    techStack: ['C++', 'Firebase', 'Flutter'],
-    iotPlatform: ['Firebase RTDB'],
-    hardware: ['ESP32', 'RFID RC522', 'Solenoid Lock'],
+    id: "1",
+    slug: "smart-doorlock-system",
+    title: "Smart Doorlock System",
+    shortDescription:
+      "RFID-based smart door lock with mobile app integration and real-time access logging.",
+    description: "",
+    techStack: ["C++", "Firebase", "Flutter"],
+    iotPlatform: ["Firebase RTDB"],
+    hardware: ["ESP32", "RFID RC522", "Solenoid Lock"],
     images: [],
     featured: true,
     published: true,
     order: 1,
   },
   {
-    id: '2',
-    slug: 'smart-trash-bin',
-    title: 'Smart Trash Bin',
-    shortDescription: 'Automatic waste sorting bin with ultrasonic sensors and IoT monitoring dashboard.',
-    description: '',
-    techStack: ['Arduino', 'Python', 'MQTT'],
-    iotPlatform: ['Thinger.io'],
-    hardware: ['Arduino Nano', 'Ultrasonic Sensor', 'Servo Motor'],
+    id: "2",
+    slug: "smart-trash-bin",
+    title: "Smart Trash Bin",
+    shortDescription:
+      "Automatic waste sorting bin with ultrasonic sensors and IoT monitoring dashboard.",
+    description: "",
+    techStack: ["Arduino", "Python", "MQTT"],
+    iotPlatform: ["Thinger.io"],
+    hardware: ["Arduino Nano", "Ultrasonic Sensor", "Servo Motor"],
     images: [],
     featured: true,
     published: true,
     order: 2,
   },
   {
-    id: '3',
-    slug: 'environmental-monitoring',
-    title: 'Environmental Monitoring Station',
-    shortDescription: 'Real-time air quality and weather monitoring system with web dashboard.',
-    description: '',
-    techStack: ['MicroPython', 'React', 'InfluxDB'],
-    iotPlatform: ['MQTT', 'Grafana'],
-    hardware: ['NodeMCU', 'DHT22', 'MQ135'],
+    id: "3",
+    slug: "environmental-monitoring",
+    title: "Environmental Monitoring Station",
+    shortDescription:
+      "Real-time air quality and weather monitoring system with web dashboard.",
+    description: "",
+    techStack: ["MicroPython", "React", "InfluxDB"],
+    iotPlatform: ["MQTT", "Grafana"],
+    hardware: ["NodeMCU", "DHT22", "MQ135"],
     images: [],
     featured: true,
     published: true,
@@ -74,6 +78,25 @@ const PortfolioPage = () => {
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="section-container">
+          {/* --- TOMBOL BACK KE HALAMAN UTAMA --- */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="mb-8"
+          >
+            <Button
+              variant="ghost"
+              asChild
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Link to="/">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Link>
+            </Button>
+          </motion.div>
+          {/* ------------------------------------ */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,7 +104,8 @@ const PortfolioPage = () => {
           >
             <h1 className="section-title">All Projects</h1>
             <p className="section-subtitle mx-auto mt-4">
-              Explore my complete collection of IoT and embedded systems projects
+              Explore my complete collection of IoT and embedded systems
+              projects
             </p>
             <div className="glow-line w-24 mx-auto mt-6" />
           </motion.div>
@@ -103,8 +127,8 @@ const PortfolioPage = () => {
                     <div className="group card-elevated card-glow h-full p-6 hover:border-primary/50 transition-all duration-300">
                       <div className="aspect-video rounded-lg bg-muted/50 mb-4 overflow-hidden flex items-center justify-center border border-border">
                         {project.images && project.images[0] ? (
-                          <img 
-                            src={project.images[0]} 
+                          <img
+                            src={project.images[0]}
                             alt={project.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />

@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "personal-porfolio-151a7.firebasestorage.app",
   messagingSenderId: "727407794244",
   appId: "1:727407794244:web:fcce5c8f27b3d98a404411",
-  measurementId: "G-ZN0LC6FF86"
+  measurementId: "G-ZN0LC6FF86",
 
   // apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   // authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -38,10 +38,12 @@ export const initAnalytics = async () => {
   return null;
 };
 
-console.log("FIREBASE CONFIG PROD", {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-});
+// console.log("FIREBASE CONFIG PROD", {
+//   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+//   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+// });
 
+// Tambahkan log ini untuk memastikan data sudah masuk
+console.log("FIREBASE CONFIG CHECK:", firebaseConfig.projectId);
 
 export default app;
