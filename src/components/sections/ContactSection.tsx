@@ -252,7 +252,7 @@ export const ContactSection = ({ contactInfo }: ContactSectionProps) => {
 
   return (
     <section id="contact" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
 
       <div className="section-container relative z-10">
         {/* HEADER */}
@@ -282,35 +282,31 @@ export const ContactSection = ({ contactInfo }: ContactSectionProps) => {
             <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-4">
+              {/* Email - Diubah dari button ke div agar tidak bisa diklik */}
               {contact.email && (
-                <button
-                  onClick={handleEmail}
-                  className="flex items-center gap-4 w-full p-3 rounded-lg hover:bg-muted/50 transition-colors text-left"
-                >
-                  <Mail className="w-5 h-5" />
+                <div className="flex items-center gap-4 w-full p-3 rounded-lg text-left">
+                  <Mail className="w-5 h-5 text-muted-foreground" />
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p>{contact.email}</p>
+                    <p className="select-all">{contact.email}</p>
                   </div>
-                </button>
+                </div>
               )}
 
+              {/* WhatsApp - Diubah dari button ke div agar tidak bisa diklik */}
               {contact.phone && (
-                <button
-                  onClick={handleWhatsApp}
-                  className="flex items-center gap-4 w-full p-3 rounded-lg hover:bg-muted/50 transition-colors text-left"
-                >
-                  <Phone className="w-5 h-5" />
+                <div className="flex items-center gap-4 w-full p-3 rounded-lg text-left">
+                  <Phone className="w-5 h-5 text-muted-foreground" />
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p>{contact.phone}</p>
+                    <p className="select-all">{contact.phone}</p>
                   </div>
-                </button>
+                </div>
               )}
 
               {contact.location && (
                 <div className="flex items-center gap-4 p-3">
-                  <MapPin className="w-5 h-5" />
+                  <MapPin className="w-5 h-5 text-muted-foreground" />
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
                     <p>{contact.location}</p>
@@ -319,7 +315,7 @@ export const ContactSection = ({ contactInfo }: ContactSectionProps) => {
               )}
             </div>
 
-            {/* SOCIAL */}
+            {/* SOCIAL - Bagian ini tetap link karena biasanya memang untuk diklik */}
             {contact.socialLinks?.length > 0 && (
               <div className="mt-6 pt-6 border-t border-border">
                 <p className="text-sm text-muted-foreground mb-4">Follow me</p>
@@ -341,12 +337,13 @@ export const ContactSection = ({ contactInfo }: ContactSectionProps) => {
           </motion.div>
 
           {/* CTA */}
+          {/* CTA (Harus Bisa Diklik) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="card-elevated card-glow p-8 flex flex-col items-center text-center"
+            // Tambahkan z-30 untuk memastikan kartu ini berada di paling atas
+            className="card-elevated card-glow p-8 flex flex-col items-center text-center relative z-30"
           >
             <Send className="w-8 h-8 mb-6 text-primary" />
             <h3 className="text-2xl font-bold mb-4">
@@ -356,15 +353,32 @@ export const ContactSection = ({ contactInfo }: ContactSectionProps) => {
               Let’s build impactful IoT & embedded solutions together.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 relative z-40">
               {contact.whatsapp && (
-                <Button size="lg" onClick={handleWhatsApp}>
+                <Button
+                  size="lg"
+                  // Pastikan onClick memanggil fungsi dengan benar
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleWhatsApp();
+                  }}
+                  className="cursor-pointer relative z-50 bg-[#00A3FF] hover:bg-[#0086d1]"
+                >
                   <Phone className="mr-2 h-5 w-5" />
                   WhatsApp
                 </Button>
               )}
+
               {contact.email && (
-                <Button size="lg" variant="outline" onClick={handleEmail}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleEmail();
+                  }}
+                  className="cursor-pointer relative z-50"
+                >
                   <Mail className="mr-2 h-5 w-5" />
                   Email
                 </Button>

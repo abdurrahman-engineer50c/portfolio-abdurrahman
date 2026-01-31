@@ -53,17 +53,25 @@ export const PortfolioSection = ({ projects }: PortfolioSectionProps) => {
               <Link to={`/portfolio/${project.slug}`}>
                 <div className="group card-elevated card-glow h-full p-6 hover:border-primary/50 transition-all duration-300">
                   {/* IMAGE */}
-                  <div className="aspect-video rounded-lg bg-muted/50 mb-4 overflow-hidden flex items-center justify-center border border-border">
-                    {project.images?.[0] ? (
-                      <img
-                        src={project.images[0]}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="text-4xl">🔌</div>
-                    )}
-                  </div>
+                  {/* Update Bagian IMAGE di PortfolioSection */}
+<div className="aspect-video rounded-lg bg-muted/50 mb-4 overflow-hidden flex items-center justify-center border border-border">
+  {project.images && project.images.length > 0 && project.images[0] !== "" ? (
+    <img
+      src={project.images[0]}
+      alt={project.title}
+      // Tambahkan onError untuk menangani link yang mati
+      onError={(e) => {
+        (e.target as HTMLImageElement).src = "https://placehold.co/600x400?text=Image+Error";
+      }}
+      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+    />
+  ) : (
+    <div className="flex flex-col items-center gap-2">
+      <span className="text-4xl">🔌</span>
+      <p className="text-xs text-muted-foreground">No Image Found</p>
+    </div>
+  )}
+</div>
 
                   {/* CONTENT */}
                   <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
