@@ -42,44 +42,52 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Index />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/portfolio/:slug" element={<ProjectDetail />} />
-            <Route path="/login" element={<Login />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={
-              <ProtectedRoute>
-                <AdminLayout />
-              </ProtectedRoute>
-            }>
-              <Route index element={<AdminDashboard />} />
-              <Route path="hero" element={<AdminHero />} />
-              <Route path="about" element={<AdminAbout />} />
-              <Route path="projects" element={<AdminProjects />} />
-              <Route path="experience" element={<AdminExperience />} />
-              <Route path="education" element={<AdminEducation />} />
-              <Route path="certificates" element={<AdminCertificates />} />
-              <Route path="skills" element={<AdminSkills />} />
-              <Route path="contact" element={<AdminContact />} />
-            </Route>
-            
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  console.log("APP COMPONENT LOADED");
+  console.log("VITE ENV CHECK:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/portfolio/:slug" element={<ProjectDetail />} />
+              <Route path="/login" element={<Login />} />
+
+              {/* Admin Routes */}
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<AdminDashboard />} />
+                <Route path="hero" element={<AdminHero />} />
+                <Route path="about" element={<AdminAbout />} />
+                <Route path="projects" element={<AdminProjects />} />
+                <Route path="experience" element={<AdminExperience />} />
+                <Route path="education" element={<AdminEducation />} />
+                <Route path="certificates" element={<AdminCertificates />} />
+                <Route path="skills" element={<AdminSkills />} />
+                <Route path="contact" element={<AdminContact />} />
+              </Route>
+
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
 

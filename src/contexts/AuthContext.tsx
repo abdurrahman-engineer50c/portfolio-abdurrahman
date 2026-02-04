@@ -43,32 +43,63 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
-      setUser(firebaseUser);
-      
-      if (firebaseUser) {
-        // Fetch user profile from Firestore
-        const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
-        if (userDoc.exists()) {
-          setUserProfile(userDoc.data() as UserProfile);
+      try {
+        setUser(firebaseUser);
+        if (firebaseUser && db) {
+          // Tambahkan pengecekan db
+          const userDoc = await getDoc(doc(db, "users", firebaseUser.uid));
+          if (userDoc.exists()) {
+            setUserProfile(userDoc.data() as UserProfile);
+          } else {
+            const defaultProfile: UserProfile = {
+              uid: firebaseUser.uid,
+              email: firebaseUser.email || "",
+              role: "read",
+            };
+            await setDoc(doc(db, "users", firebaseUser.uid), defaultProfile);
+            setUserProfile(defaultProfile);
+          }
         } else {
-          // Create default profile for new users
-          const defaultProfile: UserProfile = {
-            uid: firebaseUser.uid,
-            email: firebaseUser.email || '',
-            role: 'read',
-          };
-          await setDoc(doc(db, 'users', firebaseUser.uid), defaultProfile);
-          setUserProfile(defaultProfile);
+          setUserProfile(null);
         }
-      } else {
-        setUserProfile(null);
+      } catch (error) {
+        console.error("Auth initialization error:", error);
+      } finally {
+        setLoading(false); // PINDAHKAN KE FINALLY: Agar loading pasti berhenti
       }
-      
-      setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
+  //     setUser(firebaseUser);
+      
+  //     if (firebaseUser) {
+  //       // Fetch user profile from Firestore
+  //       const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+  //       if (userDoc.exists()) {
+  //         setUserProfile(userDoc.data() as UserProfile);
+  //       } else {
+  //         // Create default profile for new users
+  //         const defaultProfile: UserProfile = {
+  //           uid: firebaseUser.uid,
+  //           email: firebaseUser.email || '',
+  //           role: 'read',
+  //         };
+  //         await setDoc(doc(db, 'users', firebaseUser.uid), defaultProfile);
+  //         setUserProfile(defaultProfile);
+  //       }
+  //     } else {
+  //       setUserProfile(null);
+  //     }
+      
+  //     setLoading(false);
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
 
   const signIn = async (email: string, password: string) => {
     try {

@@ -38,10 +38,8 @@ export const initAnalytics = async () => {
   return null;
 };
 
-// console.log("FIREBASE CONFIG PROD", {
-//   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-//   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-// });
+console.log("Firebase App Name:", app.name);
+console.log("Storage Bucket:", storage.app.options.storageBucket);
 
 // Tambahkan log ini untuk memastikan data sudah masuk
 console.log("FIREBASE CONFIG CHECK:", firebaseConfig.projectId);
