@@ -40,7 +40,7 @@
 //       <div className="section-container relative z-10 py-20">
 //         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
 //           {/* Text Content */}
-//           <motion.div 
+//           <motion.div
 //             className="flex-1 text-center lg:text-left"
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@
 //               Available for Projects
 //             </motion.div>
 
-//             <motion.h1 
+//             <motion.h1
 //               className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@
 //               <span className="text-gradient">{data.name}</span>
 //             </motion.h1>
 
-//             <motion.p 
+//             <motion.p
 //               className="text-xl md:text-2xl text-muted-foreground font-medium mb-6"
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@
 //               {data.title}
 //             </motion.p>
 
-//             <motion.p 
+//             <motion.p
 //               className="text-muted-foreground text-lg max-w-xl mb-8"
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
@@ -84,14 +84,14 @@
 //               {data.tagline}
 //             </motion.p>
 
-//             <motion.div 
+//             <motion.div
 //               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
 //               transition={{ delay: 0.6 }}
 //             >
-//               <Button 
-//                 size="lg" 
+//               <Button
+//                 size="lg"
 //                 className="btn-primary-glow"
 //                 asChild
 //               >
@@ -100,9 +100,9 @@
 //                   Download CV
 //                 </a>
 //               </Button>
-//               <Button 
-//                 size="lg" 
-//                 variant="outline" 
+//               <Button
+//                 size="lg"
+//                 variant="outline"
 //                 onClick={scrollToContact}
 //                 className="border-primary/50 text-foreground hover:bg-primary/10"
 //               >
@@ -113,7 +113,7 @@
 //           </motion.div>
 
 //           {/* Profile Image */}
-//           <motion.div 
+//           <motion.div
 //             className="flex-shrink-0"
 //             initial={{ opacity: 0, scale: 0.8 }}
 //             animate={{ opacity: 1, scale: 1 }}
@@ -122,25 +122,25 @@
 //             <div className="relative">
 //               {/* Glow Effect */}
 //               <div className="absolute inset-0 bg-primary/30 rounded-full blur-3xl scale-110" />
-              
+
 //               {/* Image Container */}
 //               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow-lg">
-//                 <img 
-//                   src={data.profileImage || defaultData.profileImage} 
+//                 <img
+//                   src={data.profileImage || defaultData.profileImage}
 //                   alt={data.name}
 //                   className="w-full h-full object-cover"
 //                 />
 //               </div>
 
 //               {/* Floating Elements */}
-//               <motion.div 
+//               <motion.div
 //                 className="absolute -top-4 -right-4 w-12 h-12 bg-card rounded-xl border border-border flex items-center justify-center shadow-lg"
 //                 animate={{ y: [0, -10, 0] }}
 //                 transition={{ duration: 3, repeat: Infinity }}
 //               >
 //                 <span className="text-2xl">🔧</span>
 //               </motion.div>
-//               <motion.div 
+//               <motion.div
 //                 className="absolute -bottom-4 -left-4 w-12 h-12 bg-card rounded-xl border border-border flex items-center justify-center shadow-lg"
 //                 animate={{ y: [0, 10, 0] }}
 //                 transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
@@ -165,7 +165,6 @@
 //     </section>
 //   );
 // };
-
 
 import { motion } from "framer-motion";
 import { Download, Mail, ChevronDown } from "lucide-react";
@@ -196,12 +195,16 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid-pattern">
-      {/* Background */}
+      {/* Background Decor */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
 
       <div className="section-container relative z-10 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          {/* TEXT */}
+        {/* MENGGUNAKAN flex-col-reverse: 
+            - Mobile: Foto (elemen bawah di kode) muncul di ATAS.
+            - Desktop (lg): Kembali ke flex-row, Foto muncul di KANAN.
+        */}
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+          {/* --- TEXT CONTENT --- */}
           <motion.div
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, y: 30 }}
@@ -216,7 +219,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
               {data.title}
             </p>
 
-            <p className="text-muted-foreground text-lg max-w-xl mb-8">
+            <p className="text-muted-foreground text-lg max-w-xl mb-8 mx-auto lg:mx-0">
               {data.tagline}
             </p>
 
@@ -241,7 +244,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
             </div>
           </motion.div>
 
-          {/* IMAGE */}
+          {/* --- IMAGE CONTENT --- */}
           {data.profileImage && (
             <motion.div
               className="flex-shrink-0"
@@ -249,7 +252,8 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg">
+              {/* Ditambahkan mb-8 agar ada jarak dengan teks saat di mobile */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg mb-4 lg:mb-0">
                 <img
                   src={data.profileImage}
                   alt={data.name}

@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: "About", href: "#about" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -22,18 +22,18 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    if (href.startsWith('#')) {
-      if (location.pathname !== '/') {
-        window.location.href = '/' + href;
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        window.location.href = "/" + href;
       } else {
         const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -41,7 +41,10 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b border-border' : ''
+        /* PERBAIKAN: Background aktif jika di-scroll ATAU menu mobile dibuka */
+        isScrolled || isMobileMenuOpen
+          ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="section-container">
@@ -49,7 +52,9 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
             <span className="text-gradient">Abdurrahman</span>
-            <span className="ml-1 text-sm font-normal text-muted-foreground">IoT Engineer</span>
+            <span className="ml-1 text-sm font-normal text-muted-foreground">
+              IoT Engineer
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -63,7 +68,7 @@ export const Navbar = () => {
                 {item.label}
               </button>
             ))}
-            <Button size="sm" onClick={() => handleNavClick('#contact')}>
+            <Button size="sm" onClick={() => handleNavClick("#contact")}>
               Hire Me
             </Button>
           </div>
@@ -75,7 +80,11 @@ export const Navbar = () => {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </nav>
 
@@ -84,9 +93,10 @@ export const Navbar = () => {
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
+              /* Tambahkan sedikit background gelap di sini untuk memastikan konten di bawah tertutup */
+              className="md:hidden overflow-hidden bg-background/50"
             >
               <div className="py-4 space-y-2">
                 {navItems.map((item) => (
@@ -98,8 +108,11 @@ export const Navbar = () => {
                     {item.label}
                   </button>
                 ))}
-                <div className="px-4 pt-2">
-                  <Button className="w-full" onClick={() => handleNavClick('#contact')}>
+                <div className="px-4 pt-2 pb-4">
+                  <Button
+                    className="w-full"
+                    onClick={() => handleNavClick("#contact")}
+                  >
                     Hire Me
                   </Button>
                 </div>
