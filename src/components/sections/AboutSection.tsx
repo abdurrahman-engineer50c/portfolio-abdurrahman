@@ -105,23 +105,23 @@ const highlights = [
   {
     icon: Cpu,
     label: "Embedded Systems",
-    description: "ESP32, Arduino, STM32",
+    description: "ESP32, Arduino, STM32, Microbit",
   },
   {
     icon: Code,
     label: "Firmware Development",
-    description: "C / C++, MicroPython",
+    description: "C / C++, MicroPython, Python, HTML, CSS",
   },
   {
     icon: Wifi,
     label: "IoT Protocols",
-    description: "MQTT, HTTP, Modbus",
+    description: "MQTT, HTTP, Firebase, Wifi, Ble",
   },
-  {
-    icon: Zap,
-    label: "Rapid Prototyping",
-    description: "PCB Design, Hardware Testing",
-  },
+  // {
+  //   icon: Zap,
+  //   label: "Rapid Prototyping",
+  //   description: "PCB Design, Hardware Testing",
+  // },
 ];
 
 export const AboutSection = ({ data }: AboutSectionProps) => {
