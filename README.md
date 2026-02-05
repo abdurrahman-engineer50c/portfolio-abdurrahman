@@ -1,73 +1,40 @@
-# Welcome to your Lovable project
+# Personal Portfolio - Abdurrahman - Engineer50c
 
-## Project info
+Repositori ini berisi kode sumber untuk website portofolio pribadi saya yang dapat diakses di [abdurrahmanbantaniy.netlify.app](https://abdurrahmanbantaniy.netlify.app). Website ini dirancang untuk menampilkan identitas profesional saya sebagai IoT Engineer, pengalaman kerja, serta proyek-proyek yang telah saya kerjakan.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Profil Singkat
 
-## How can I edit this code?
+Saya adalah seorang **Software Engineering Student** dan **IoT Engineer** yang berfokus pada integrasi perangkat keras dan perangkat lunak. Selain aktif dalam pengembangan web, saya juga memiliki pengalaman sebagai **Mentor Assistant di Samsung Innovation Campus**.
 
-There are several ways of editing your application.
+## 🛠️ Stack Teknologi
 
-**Use Lovable**
+Website ini dibangun dengan teknologi modern untuk memastikan performa dan skalabilitas:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+* **Frontend:** React.js dengan TypeScript
+* **Styling:** Tailwind CSS / CSS Modules
+* **Backend & Database:** Firebase (Authentication & Firestore)
+* **Hosting:** Netlify
+* **Tools:** Vite, Git
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📌 Fitur Utama
 
-**Use your preferred IDE**
+* **Dinamis & Responsif:** Tampilan yang optimal di berbagai perangkat (Mobile, Tablet, Desktop).
+* **Integrasi Firebase:** Digunakan untuk pengelolaan data proyek secara real-time.
+* **Halaman Pengalaman:** Menampilkan riwayat karir, termasuk peran sebagai Mentor Assistant dan QA Tester Engineer Intern.
+* **Showcase Proyek:** Daftar proyek IoT dan Software Engineering yang pernah dikerjakan.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📂 Proyek Lainnya
 
-Follow these steps:
+Beberapa proyek unggulan yang saya kerjakan meliputi:
+* **Monitoring SPBU berbasis IoT:** Sistem monitoring tangki bensin menggunakan ESP32.
+* **IoT Hydroponic System:** Sistem kontrol tanaman otomatis dengan MQTT dan Python dashboard.
+* **Curriculum Design:** Pengembangan materi IoT untuk siswa SMP.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📫 Kontak
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+* **Website:** [abdurrahmanbantaniy.netlify.app](https://abdurrahmanbantaniy.netlify.app)
+* **LinkedIn:** [www.linkedin.com/in/abdurrahman-engineer50c]
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+© 2026 Abdurrahman.
