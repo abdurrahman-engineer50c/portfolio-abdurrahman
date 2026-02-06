@@ -27,7 +27,6 @@ Website ini dibangun dengan teknologi modern untuk memastikan performa dan skala
 ## 📂 Proyek Lainnya
 
 Beberapa proyek unggulan yang saya kerjakan meliputi:
-* **Monitoring SPBU berbasis IoT:** Sistem monitoring tangki bensin menggunakan ESP32.
 * **IoT Hydroponic System:** Sistem kontrol tanaman otomatis dengan MQTT dan Python dashboard.
 * **Curriculum Design:** Pengembangan materi IoT untuk siswa SMP.
 
