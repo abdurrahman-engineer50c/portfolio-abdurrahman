@@ -205,16 +205,16 @@ export const CertificatesSection = ({
 
                 {/* LINK */}
                 {cert.certificateUrl && cert.certificateUrl !== "#" && (
-                  <a
-                    href={cert.certificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm text-primary hover:underline"
-                  >
-                    {/* View Certificate
-                    <ExternalLink className="ml-1 w-3 h-3" /> */}
-                  </a>
-                )}
+                    <a
+                      href={cert.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center mt-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+                    >
+                      <span>View Certificate</span>
+                      <ExternalLink className="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
+                  )}
               </div>
             </motion.div>
           ))}
