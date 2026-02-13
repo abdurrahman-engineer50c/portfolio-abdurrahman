@@ -211,8 +211,8 @@ export const CertificatesSection = ({
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-sm text-primary hover:underline"
                   >
-                    View Certificate
-                    <ExternalLink className="ml-1 w-3 h-3" />
+                    {/* View Certificate
+                    <ExternalLink className="ml-1 w-3 h-3" /> */}
                   </a>
                 )}
               </div>
