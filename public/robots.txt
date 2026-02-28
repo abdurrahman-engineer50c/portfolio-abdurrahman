@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://abdurrahmanbantaniy.com/sitemap.xml
