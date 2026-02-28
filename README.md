@@ -1,6 +1,6 @@
 # Personal Portfolio | Abdurrahman - Engineer50c
 
-Repositori ini berisi kode sumber untuk website portofolio pribadi saya yang dapat diakses di [abdurrahmanbantaniy.netlify.app](https://abdurrahmanbantaniy.netlify.app). Website ini dirancang untuk menampilkan identitas profesional saya sebagai IoT Engineer, pengalaman kerja, serta proyek-proyek yang telah saya kerjakan.
+Repositori ini berisi kode sumber untuk website portofolio pribadi saya yang dapat diakses di [abdurrahmanbantaniy.com](https://abdurrahmanbantaniy.com). Website ini dirancang untuk menampilkan identitas profesional saya sebagai IoT Engineer, pengalaman kerja, serta proyek-proyek yang telah saya kerjakan.
 
 ## 🚀 Profil Singkat
 
