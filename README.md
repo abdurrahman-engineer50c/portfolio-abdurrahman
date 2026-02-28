@@ -32,7 +32,7 @@ Beberapa proyek unggulan yang saya kerjakan meliputi:
 
 ## 📫 Kontak
 
-* **Website:** [abdurrahmanbantaniy.netlify.app](https://abdurrahmanbantaniy.netlify.app)
+* **Website:** [abdurrahmanbantaniy.netlify.app](https://abdurrahmanbantaniy.com)
 * **LinkedIn:** [www.linkedin.com/in/abdurrahman-engineer50c]
 
 ---
